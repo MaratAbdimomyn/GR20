@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Чемпионы Формулы 1 в хронологическом порядке</h3>
+
+    {% for i in one %}
+    <ul>
+        <p>Это ID записи <b style="color:deepskyblue;">{{ i.id }}</b></p>
+        <li><a href={% url 'about' i.pk %}>{{ i.champions_name }}</a></li>
+        <li>{{ i.champions_team }}</li>
+        <li>{{ i.champions_year }}</li>
+    </ul>
+    {% endfor %}
+    <p><a href={% url 'list' %}>Тут можно посмотреть как работает выдача одной записи или нескольких</a></p>
+</body>
+</html>

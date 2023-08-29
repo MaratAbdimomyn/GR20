@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Чемпионы Формулы 1</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="number" name="Page">
+        <button type="submit">Выбрать</button>
+    </form>
+
+    {% for i in data %}
+    <ul>
+        <li><a href={% url 'about' i.pk %}>{{ i.champions_name }}</a></li>
+        <li>{{ i.champions_team }}</li>
+        <li>{{ i.champions_year }}</li>
+    </ul>
+    {% endfor %}
+</body>
+</html>
